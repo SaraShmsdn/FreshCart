@@ -42,7 +42,7 @@ export default function page() {
 
   const { cartId, setCartProducts, setNumberOfCartItems, isLoading, numberOfCartItems, totalPriceOfCart, cartProducts } = useContext(cartContext)
 
-  async function handlePayment(value) {
+  async function handlePayment(value: any) {
     console.log(value);
 
     const userData: shippingAddressType = {
