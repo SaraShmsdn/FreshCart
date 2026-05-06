@@ -38,7 +38,6 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { useSession } from 'next-auth/react';
-import { ProductType } from './../../types/Product.types';
 
 const exo = localFont({
   src: "../../assets/fonts/Exo.ttf",
