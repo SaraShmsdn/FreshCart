@@ -4,25 +4,7 @@ import React, {createContext, ReactNode, useEffect, useState} from 'react'
 import { getUserCart } from '../cart/cart.action'
 import { CartItemType } from '@/types/cart.type'
 
-//export const cartContext = createContext({})
-
-export const cartContext = createContext<CartContextType | null>(null)
-
-type CartContextType = {
-  numberOfCartItems: number
-  setNumberOfCartItems: React.Dispatch<React.SetStateAction<number>>
-
-  cartProducts: CartItemType[] | undefined
-  setCartProducts: React.Dispatch<React.SetStateAction<CartItemType[] | undefined>>
-
-  totalPriceOfCart: number
-  setTotalPriceOfCart: React.Dispatch<React.SetStateAction<number>>
-
-  isLoading: boolean
-
-  cartId: string
-  setCartId: React.Dispatch<React.SetStateAction<string>>
-}
+export const cartContext = createContext({})
 
 export default function CartContextProvider({children} : {children: ReactNode}) {
 

@@ -10,17 +10,7 @@ import { useSession } from 'next-auth/react'
 export default function AddToCartBtn({ productId }: { productId: string }) {
   const session = useSession()
   const [clicked, setClicked] = useState(false)
- // const { setNumberOfCartItems, setCartProducts, setTotalPriceOfCart } = useContext(cartContext)
- const cart = useContext(cartContext)
-
-if (!cart) return null
-
-const {
-  setNumberOfCartItems,
-  setCartProducts,
-  setTotalPriceOfCart,
-} = cart
-
+  const { setNumberOfCartItems, setCartProducts, setTotalPriceOfCart } = useContext(cartContext) as any
   async function handleAddToCart() {
     const res = await addProductToCart(productId)
     if (session.data) {

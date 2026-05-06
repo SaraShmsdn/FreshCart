@@ -40,7 +40,7 @@ export default function page() {
     resolver: zodResolver(checkoutSchema)
   })
 
-  const { cartId, setCartProducts, setNumberOfCartItems, isLoading, numberOfCartItems, totalPriceOfCart, cartProducts } = useContext(cartContext)
+  const { cartId, setCartProducts, setNumberOfCartItems, isLoading, numberOfCartItems, totalPriceOfCart, cartProducts } = useContext(cartContext) as any
 
   async function handlePayment(value: any) {
     console.log(value);

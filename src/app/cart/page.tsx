@@ -51,7 +51,7 @@ export default function page({ product }: ProductCardPropsType) {
   const [value, setValue] = useState(1)
   const session = useSession()
 
-  const { cartProducts, totalPriceOfCart, numberOfCartItems, setCartProducts, setNumberOfCartItems, setTotalPriceOfCart } = useContext(cartContext)
+  const { cartProducts, totalPriceOfCart, numberOfCartItems, setCartProducts, setNumberOfCartItems, setTotalPriceOfCart } = useContext(cartContext) as any
 
   async function handleDeleteItem(id: string) {
     const res = await deleteItemFromCart(id)
