@@ -23,7 +23,7 @@ const exo = localFont({
 });
 
 
-export default async function page({ params }) {
+export default async function page({ params }: { params: Promise<{ id: string }> }) {
 
   const myParams = await params
 
@@ -73,14 +73,14 @@ export default async function page({ params }) {
             <h1 className='font-bold text-[30px] mb-3'>{product?.title}</h1>
             <div className='flex items-center mb-4 gap-3'>
               <div className='flex pr-2 '>
-                {[...Array(Math.floor(product?.ratingsAverage))].map((rating, index) => (
+                {[...Array(Math.floor(product?.ratingsAverage ?? 0))].map((rating, index) => (
                   <FaStar key={index} className='text-[#FCC800] text-[20px]' />
                 ))}
-                {product?.ratingsAverage % 1 !== 0 && <FaStarHalfStroke className='text-[#FCC800] text-[20px]' />}
-                {product?.ratingsAverage === 0 && <FaRegStar className='text-[#FCC800] text-[20px]' />}
+                {(product?.ratingsAverage ?? 0) % 1 !== 0 && <FaStarHalfStroke className='text-[#FCC800] text-[20px]' />}
+                {(product?.ratingsAverage ?? 0) === 0 && <FaRegStar className='text-[#FCC800] text-[20px]' />}
 
               </div>
-              <span className='text-[14px] text-[#4A5565]'>{product?.ratingsAverage} ({product?.ratingsQuantity} reviews)</span>
+              <span className='text-[14px] text-[#4A5565]'>{product?.ratingsAverage ?? 0} ({product?.ratingsQuantity ?? 0} reviews)</span>
             </div>
             <div className='flex items-center gap-3 mb-6'>
               {product?.priceAfterDiscount ?

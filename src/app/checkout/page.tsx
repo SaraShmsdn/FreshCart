@@ -78,7 +78,7 @@ export default function page() {
   }
 
   return (
-    <div className={`bg-[#F9FAFB] ${exo.className} min-h-screen`}>
+    <div className={` ${exo.className} min-h-screen`}>
       <div className='container px-16 gap-8 mb-8 mt-8 '>
         <div className='mb-8 gap-4'>
           <Breadcrumb className='mb-4'>

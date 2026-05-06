@@ -1,7 +1,7 @@
 import React from "react"
  import ContentLoader from "react-content-loader"
 
-  const loading = (props) => (
+  const loading = (props: React.ComponentProps<typeof ContentLoader>) => (
     <ContentLoader 
       className="w-full h-full"
       speed={2}

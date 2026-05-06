@@ -13,7 +13,7 @@ export const nextAuthConfig: NextAuthOptions = {
                 password: {}
             },
 
-            async authorize(credentials) { //it runs when we click on login button
+            async authorize(credentials, req) { //it runs when we click on login button
 
                 const res = await fetch("https://ecommerce.routemisr.com/api/v1/auth/signin", {
                     method: "POST",
@@ -28,6 +28,7 @@ export const nextAuthConfig: NextAuthOptions = {
 
                 if (finalRes.message == "success") {
                     return {
+                        id: finalRes.user.id ?? finalRes.user._id ?? finalRes.user.email,
                         name: finalRes.user.name,
                         email: finalRes.user.email,
                         realTokenFromBackend: finalRes.token
@@ -44,7 +45,7 @@ export const nextAuthConfig: NextAuthOptions = {
         //runs after login (authorize function) or refresh or navigation (it return the data on server side)
         jwt(params) {
             if (params.user) {
-                params.token.realTokenFromBackend = params.user.realTokenFromBackend //save the user token in token bc it will not be availabe later
+                params.token.realTokenFromBackend = (params.user as any).realTokenFromBackend //save the user token in token bc it will not be availabe later
             }
 
             console.log("params.token", params.token)
