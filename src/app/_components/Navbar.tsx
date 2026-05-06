@@ -64,7 +64,7 @@ const exo = localFont({
 });
 
 export default function Navbar() {
-  const { numberOfCartItems } = useContext(cartContext)
+  const { numberOfCartItems } = useContext(cartContext) as { numberOfCartItems: number }
   return (
     <div className="w-full border-b-2 bg-white sticky top-0 z-40">
       <NavigationMenu className={`max-w-none h-18.5 flex items-center justify-between px-16 text-[#364153] ${exo.className}`}>
